@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.mixins;
+package org.eclipse.digitaltwin.aas4j.v3.dataformat.json.internal.mixins;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
@@ -33,4 +34,16 @@ import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
 public interface AdministrativeInformationMixin {
   @JsonIgnore
   public List<Reference> getDataSpecifications();
+
+  @JsonProperty
+  public String getCreatedAt();
+
+  @JsonProperty
+  public void setCreatedAt(String createdAt);
+
+  @JsonProperty
+  public String getUpdatedAt();
+
+  @JsonProperty
+  public void setUpdatedAt(String updatedAt);
 }

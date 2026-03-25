@@ -81,6 +81,44 @@ public interface AdministrativeInformation extends HasDataSpecification {
   void setCreator(Reference creator);
 
   /**
+   * Date of creation.
+   *
+   * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/createdAt
+   *
+   * @return Returns the String for the property createdAt.
+   */
+  @IRI("https://admin-shell.io/aas/3/1/AdministrativeInformation/createdAt")
+  String getCreatedAt();
+
+  /**
+   * Date of creation.
+   *
+   * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/createdAt
+   *
+   * @param createdAt desired value for the property createdAt.
+   */
+  void setCreatedAt(String createdAt);
+
+  /**
+   * Date of update.
+   *
+   * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/updatedAt
+   *
+   * @return Returns the String for the property updatedAt.
+   */
+  @IRI("https://admin-shell.io/aas/3/1/AdministrativeInformation/updatedAt")
+  String getUpdatedAt();
+
+  /**
+   * Date of update.
+   *
+   * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/updatedAt
+   *
+   * @param updatedAt desired value for the property updatedAt.
+   */
+  void setUpdatedAt(String updatedAt);
+
+  /**
    * Identifier of the template that guided the creation of the element.
    *
    * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/templateId

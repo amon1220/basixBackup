@@ -58,6 +58,28 @@ public abstract class AdministrativeInformationBuilder<
   }
 
   /**
+   * This function allows setting a value for createdAt
+   *
+   * @param createdAt desired value to be set
+   * @return Builder object with new value for createdAt
+   */
+  public B createdAt(String createdAt) {
+    getBuildingInstance().setCreatedAt(createdAt);
+    return getSelf();
+  }
+
+  /**
+   * This function allows setting a value for updatedAt
+   *
+   * @param updatedAt desired value to be set
+   * @return Builder object with new value for updatedAt
+   */
+  public B updatedAt(String updatedAt) {
+    getBuildingInstance().setUpdatedAt(updatedAt);
+    return getSelf();
+  }
+
+  /**
    * This function allows setting a value for templateId
    *
    * @param templateId desired value to be set
