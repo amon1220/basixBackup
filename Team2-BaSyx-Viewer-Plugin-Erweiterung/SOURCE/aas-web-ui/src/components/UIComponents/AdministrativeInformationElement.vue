@@ -79,6 +79,19 @@
                                 </template>
                             </v-list-item-title>
                         </v-list-item>
+                        <!-- CreatedAt and UpdatedAt -->
+                        <v-list-item v-if="administrativeInformationObject?.createdAt" class="ma-0">
+                            <v-list-item-title>
+                                <span class="text-subtitle-2 mt-2 mr-2">{{ 'Created:' }}</span
+                                ><span class="text-caption">{{ administrativeInformationObject.createdAt }}</span>
+                            </v-list-item-title>
+                        </v-list-item>
+                        <v-list-item v-if="administrativeInformationObject?.updatedAt" class="ma-0">
+                            <v-list-item-title>
+                                <span class="text-subtitle-2 mt-2 mr-2">{{ 'Updated:' }}</span
+                                ><span class="text-caption">{{ administrativeInformationObject.updatedAt }}</span>
+                            </v-list-item-title>
+                        </v-list-item>
                     </v-list>
                     <v-divider
                         v-if="

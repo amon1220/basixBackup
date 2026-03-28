@@ -114,6 +114,22 @@
                                     <HelpInfoButton help-type="templateId" />
                                 </v-col>
                             </v-row>
+                            <v-row align="center">
+                                <v-col class="py-0">
+                                    <TextInput v-model="createdAt" label="Created At" />
+                                </v-col>
+                                <v-col cols="auto" class="px-0">
+                                    <HelpInfoButton help-type="createdAt" />
+                                </v-col>
+                            </v-row>
+                            <v-row align="center">
+                                <v-col class="py-0">
+                                    <TextInput v-model="updatedAt" label="Updated At" />
+                                </v-col>
+                                <v-col cols="auto" class="px-0">
+                                    <HelpInfoButton help-type="updatedAt" />
+                                </v-col>
+                            </v-row>
                         </v-expansion-panel-text>
                     </v-expansion-panel>
                     <!-- Semantic ID -->
@@ -215,6 +231,8 @@
     const revision = ref<string | null>(null);
     const creator = ref<aasTypes.Reference | null>(null);
     const templateId = ref<string | null>(null);
+    const createdAt = ref<string | null>(null);
+    const updatedAt = ref<string | null>(null);
 
     const semanticId = ref<aasTypes.Reference | null>(null);
     const qualifiers = ref<Array<aasTypes.Qualifier> | null>(null);
@@ -313,6 +331,8 @@
                 revision.value = submodelObject.value.administration.revision ?? null;
                 creator.value = submodelObject.value.administration.creator ?? null;
                 templateId.value = submodelObject.value.administration.templateId ?? null;
+                createdAt.value = (submodelObject.value.administration as any).createdAt ?? null;
+                updatedAt.value = (submodelObject.value.administration as any).updatedAt ?? null;
             }
             semanticId.value = submodelObject.value.semanticId ?? null;
             qualifiers.value = submodelObject.value.qualifiers ?? null;
@@ -341,6 +361,14 @@
         // Add optional parameter templateId
         if (templateId.value !== null && templateId.value !== undefined) {
             administrativeInformation.templateId = templateId.value;
+        }
+
+        if (createdAt.value !== null && createdAt.value !== undefined) {
+            (administrativeInformation as any).createdAt = createdAt.value;
+        }
+
+        if (updatedAt.value !== null && updatedAt.value !== undefined) {
+            (administrativeInformation as any).updatedAt = updatedAt.value;
         }
 
         return administrativeInformation;
@@ -529,6 +557,8 @@
         revision.value = null;
         creator.value = null;
         templateId.value = null;
+        createdAt.value = null;
+        updatedAt.value = null;
         semanticId.value = null;
         qualifiers.value = null;
         embeddedDataSpecifications.value = null;

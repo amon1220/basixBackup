@@ -106,6 +106,22 @@
                                     <HelpInfoButton help-type="templateId" />
                                 </v-col>
                             </v-row>
+                            <v-row align="center">
+                                <v-col class="py-0">
+                                    <TextInput v-model="createdAt" label="Created At" />
+                                </v-col>
+                                <v-col cols="auto" class="px-0">
+                                    <HelpInfoButton help-type="createdAt" />
+                                </v-col>
+                            </v-row>
+                            <v-row align="center">
+                                <v-col class="py-0">
+                                    <TextInput v-model="updatedAt" label="Updated At" />
+                                </v-col>
+                                <v-col cols="auto" class="px-0">
+                                    <HelpInfoButton help-type="updatedAt" />
+                                </v-col>
+                            </v-row>
                         </v-expansion-panel-text>
                     </v-expansion-panel>
                     <!-- Derivation -->
@@ -250,6 +266,8 @@
     const revision = ref<string | null>(null);
     const creator = ref<aasTypes.Reference | null>(null);
     const templateId = ref<string | null>(null);
+    const createdAt = ref<string | null>(null);
+    const updatedAt = ref<string | null>(null);
     const derivedFrom = ref<aasTypes.Reference | null>(null);
 
     const assetKind = ref<aasTypes.AssetKind>(aasTypes.AssetKind.Instance);
@@ -356,6 +374,8 @@
                 revision.value = AASObject.value.administration.revision ?? null;
                 creator.value = AASObject.value.administration.creator ?? null;
                 templateId.value = AASObject.value.administration.templateId ?? null;
+                createdAt.value = (AASObject.value.administration as any).createdAt ?? null;
+                updatedAt.value = (AASObject.value.administration as any).updatedAt ?? null;
             }
             if (AASObject.value.assetInformation !== null && AASObject.value.assetInformation !== undefined) {
                 assetKind.value = AASObject.value.assetInformation.assetKind ?? aasTypes.AssetKind.Instance;
@@ -420,6 +440,14 @@
         // Add optional parameter templateId
         if (templateId.value !== null && templateId.value !== undefined) {
             administrativeInformation.templateId = templateId.value;
+        }
+
+        if (createdAt.value !== null && createdAt.value !== undefined) {
+            (administrativeInformation as any).createdAt = createdAt.value;
+        }
+
+        if (updatedAt.value !== null && updatedAt.value !== undefined) {
+            (administrativeInformation as any).updatedAt = updatedAt.value;
         }
 
         return administrativeInformation;
@@ -646,6 +674,8 @@
         revision.value = null;
         creator.value = null;
         templateId.value = null;
+        createdAt.value = null;
+        updatedAt.value = null;
         derivedFrom.value = null;
         assetKind.value = aasTypes.AssetKind.Instance;
         globalAssetId.value = null;

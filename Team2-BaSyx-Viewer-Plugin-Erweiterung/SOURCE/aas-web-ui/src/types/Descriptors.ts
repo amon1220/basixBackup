@@ -136,4 +136,6 @@ export class AdministrativeInformation {
     revision?: string | null;
     creator?: aasTypes.Reference | null;
     templateId?: string | null;
+    createdAt?: string | null;
+    updatedAt?: string | null;
 }
