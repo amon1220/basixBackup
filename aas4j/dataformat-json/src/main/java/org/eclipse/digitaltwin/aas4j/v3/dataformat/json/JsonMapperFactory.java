@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper.Builder;
 import com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.dataformat.core.internal.deserialization.EnumDeserializer;
@@ -42,10 +43,12 @@ public class JsonMapperFactory {
     Builder builder =
         JsonMapper.builder()
             .enable(SerializationFeature.INDENT_OUTPUT)
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
             .enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
             .annotationIntrospector(new ReflectionAnnotationIntrospector())
-            .serializationInclusion(JsonInclude.Include.NON_NULL);
+            .serializationInclusion(JsonInclude.Include.NON_NULL)
+            .addModule(new JavaTimeModule());
 
     getModulesToInstall(typeResolver).stream().forEach(m -> builder.addModule(m));
 

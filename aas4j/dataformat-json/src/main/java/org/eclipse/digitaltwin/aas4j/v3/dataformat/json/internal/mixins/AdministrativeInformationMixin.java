@@ -18,6 +18,7 @@ package org.eclipse.digitaltwin.aas4j.v3.dataformat.json.internal.mixins;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
 
@@ -36,14 +37,14 @@ public interface AdministrativeInformationMixin {
   public List<Reference> getDataSpecifications();
 
   @JsonProperty
-  public String getCreatedAt();
+  public OffsetDateTime getCreatedAt();
 
   @JsonProperty
-  public void setCreatedAt(String createdAt);
+  public void setCreatedAt(OffsetDateTime createdAt);
 
   @JsonProperty
-  public String getUpdatedAt();
+  public OffsetDateTime getUpdatedAt();
 
   @JsonProperty
-  public void setUpdatedAt(String updatedAt);
+  public void setUpdatedAt(OffsetDateTime updatedAt);
 }

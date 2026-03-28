@@ -59,6 +59,8 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
+            <xs:element name="createdAt" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="updatedAt" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:group>
     <xs:group name="annotatedRelationshipElement">

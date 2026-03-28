@@ -15,6 +15,7 @@
 
 package org.eclipse.digitaltwin.aas4j.v3.model;
 
+import java.time.OffsetDateTime;
 import org.eclipse.digitaltwin.aas4j.v3.model.annotations.IRI;
 import org.eclipse.digitaltwin.aas4j.v3.model.annotations.KnownSubtypes;
 import org.eclipse.digitaltwin.aas4j.v3.model.impl.DefaultAdministrativeInformation;
@@ -85,10 +86,10 @@ public interface AdministrativeInformation extends HasDataSpecification {
    *
    * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/createdAt
    *
-   * @return Returns the String for the property createdAt.
+   * @return Returns the OffsetDateTime for the property createdAt.
    */
   @IRI("https://admin-shell.io/aas/3/1/AdministrativeInformation/createdAt")
-  String getCreatedAt();
+  OffsetDateTime getCreatedAt();
 
   /**
    * Date of creation.
@@ -97,17 +98,17 @@ public interface AdministrativeInformation extends HasDataSpecification {
    *
    * @param createdAt desired value for the property createdAt.
    */
-  void setCreatedAt(String createdAt);
+  void setCreatedAt(OffsetDateTime createdAt);
 
   /**
    * Date of update.
    *
    * <p>More information under https://admin-shell.io/aas/3/1/AdministrativeInformation/updatedAt
    *
-   * @return Returns the String for the property updatedAt.
+   * @return Returns the OffsetDateTime for the property updatedAt.
    */
   @IRI("https://admin-shell.io/aas/3/1/AdministrativeInformation/updatedAt")
-  String getUpdatedAt();
+  OffsetDateTime getUpdatedAt();
 
   /**
    * Date of update.
@@ -116,7 +117,7 @@ public interface AdministrativeInformation extends HasDataSpecification {
    *
    * @param updatedAt desired value for the property updatedAt.
    */
-  void setUpdatedAt(String updatedAt);
+  void setUpdatedAt(OffsetDateTime updatedAt);
 
   /**
    * Identifier of the template that guided the creation of the element.

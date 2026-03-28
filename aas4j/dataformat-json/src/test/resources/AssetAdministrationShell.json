@@ -12,10 +12,11 @@
   ],
   "modelType": "AssetAdministrationShell",
   "id": "https://acplt.org/Test_AssetAdministrationShell",
-  "administration":
-  {
+  "administration": {
     "version": "0",
-    "revision": "9"
+    "revision": "9",
+    "createdAt": "2024-03-22T09:30:00Z",
+    "updatedAt": "2024-03-22T09:30:00Z"
   },
   "derivedFrom":
   {

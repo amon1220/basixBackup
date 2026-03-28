@@ -36,8 +36,10 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 /**
  * SerializationExtension integrating the AAS4J serialization in BaSyx
@@ -57,9 +59,9 @@ public class Aas4JHTTPSerializationExtension implements SerializationExtension {
   public void extend(Jackson2ObjectMapperBuilder builder) {
     builder.featuresToEnable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
         .serializationInclusion(JsonInclude.Include.NON_NULL)
-        .featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         .annotationIntrospector(new ReflectionAnnotationIntrospector())
-        .modulesToInstall(buildEnumModule(), buildImplementationModule());
+        .modulesToInstall(new JavaTimeModule(), buildEnumModule(), buildImplementationModule());
     ReflectionHelper.JSON_MIXINS.entrySet().forEach(x -> builder.mixIn(x.getKey(), x.getValue()));
   }
 

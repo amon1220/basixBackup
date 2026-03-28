@@ -16,6 +16,7 @@
  */
 package org.eclipse.digitaltwin.aas4j.v3.dataformat.core;
 
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Base64;
 import org.eclipse.digitaltwin.aas4j.v3.model.AasSubmodelElements;
@@ -103,7 +104,12 @@ public class AASFull {
                     .build()))
         .id("https://acplt.org/Test_AssetAdministrationShell")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .derivedFrom(
             new DefaultReference.Builder()
                 .keys(
@@ -212,7 +218,12 @@ public class AASFull {
                     .build()))
         .id("https://acplt.org/Test_AssetAdministrationShell_Missing")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .assetInformation(
             new DefaultAssetInformation.Builder()
                 .assetKind(AssetKind.INSTANCE)
@@ -245,7 +256,12 @@ public class AASFull {
                     .build()))
         .id("http://acplt.org/Submodels/Assets/TestAsset/Identification")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .kind(ModellingKind.INSTANCE)
         .semanticId(
             new DefaultReference.Builder()
@@ -533,7 +549,12 @@ public class AASFull {
                     .build()))
         .id("https://acplt.org/Test_Submodel")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .kind(ModellingKind.INSTANCE)
         .semanticId(
             new DefaultReference.Builder()
@@ -1375,7 +1396,12 @@ public class AASFull {
         .id("https://acplt.org/Test_Submodel_Missing")
         .kind(ModellingKind.INSTANCE)
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .semanticId(
             new DefaultReference.Builder()
                 .keys(
@@ -1976,7 +2002,12 @@ public class AASFull {
         .id("https://acplt.org/Test_Submodel_Template")
         .kind(ModellingKind.TEMPLATE)
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .semanticId(
             new DefaultReference.Builder()
                 .keys(
@@ -2572,7 +2603,12 @@ public class AASFull {
                     .build()))
         .id("https://acplt.org/Test_ConceptDescription")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .isCaseOf(
             new DefaultReference.Builder()
                 .keys(
@@ -2609,7 +2645,12 @@ public class AASFull {
         .id("https://acplt.org/Test_ConceptDescription_Missing")
         .category("PROPERTY")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .build();
   }
 
@@ -2618,7 +2659,12 @@ public class AASFull {
         .idShort("TestSpec_01")
         .id("http://acplt.org/DataSpecifciations/Example/Identification")
         .administration(
-            new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+            new DefaultAdministrativeInformation.Builder()
+                .version("0")
+                .revision("9")
+                .createdAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .updatedAt(OffsetDateTime.parse("2024-03-22T09:30:00Z"))
+                .build())
         .isCaseOf(
             new DefaultReference.Builder()
                 .keys(

@@ -15,6 +15,7 @@
 
 package org.eclipse.digitaltwin.aas4j.v3.model.builder;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.model.AdministrativeInformation;
 import org.eclipse.digitaltwin.aas4j.v3.model.EmbeddedDataSpecification;
@@ -63,7 +64,7 @@ public abstract class AdministrativeInformationBuilder<
    * @param createdAt desired value to be set
    * @return Builder object with new value for createdAt
    */
-  public B createdAt(String createdAt) {
+  public B createdAt(OffsetDateTime createdAt) {
     getBuildingInstance().setCreatedAt(createdAt);
     return getSelf();
   }
@@ -74,7 +75,7 @@ public abstract class AdministrativeInformationBuilder<
    * @param updatedAt desired value to be set
    * @return Builder object with new value for updatedAt
    */
-  public B updatedAt(String updatedAt) {
+  public B updatedAt(OffsetDateTime updatedAt) {
     getBuildingInstance().setUpdatedAt(updatedAt);
     return getSelf();
   }

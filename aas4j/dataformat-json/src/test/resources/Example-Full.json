@@ -46,7 +46,9 @@
       ],
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_AssetAdministrationShell",
       "idShort": "TestAssetAdministrationShell",
@@ -118,7 +120,9 @@
       ],
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_AssetAdministrationShell_Missing",
       "idShort": "TestAssetAdministrationShell",
@@ -139,7 +143,9 @@
       "modelType": "ConceptDescription",
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_ConceptDescription",
       "idShort": "TestConceptDescription",
@@ -175,7 +181,9 @@
       "category": "PROPERTY",
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_ConceptDescription_Missing",
       "idShort": "TestConceptDescription1",
@@ -194,7 +202,9 @@
       "modelType": "ConceptDescription",
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "http://acplt.org/DataSpecifciations/Example/Identification",
       "idShort": "TestSpec_01",
@@ -321,7 +331,9 @@
       },
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "http://acplt.org/Submodels/Assets/TestAsset/Identification",
       "idShort": "Identification",
@@ -611,7 +623,9 @@
       },
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_Submodel",
       "idShort": "TestSubmodel",
@@ -1430,7 +1444,9 @@
       },
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_Submodel_Missing",
       "idShort": "TestSubmodelMissing",
@@ -2029,7 +2045,9 @@
       },
       "administration": {
         "revision": "9",
-        "version": "0"
+        "version": "0",
+        "createdAt": "2024-03-22T09:30:00Z",
+        "updatedAt": "2024-03-22T09:30:00Z"
       },
       "id": "https://acplt.org/Test_Submodel_Template",
       "idShort": "TestSubmodelTemplate",
