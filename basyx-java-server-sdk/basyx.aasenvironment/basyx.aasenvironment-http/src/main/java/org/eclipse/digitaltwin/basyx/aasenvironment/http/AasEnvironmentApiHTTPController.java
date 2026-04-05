@@ -26,12 +26,15 @@
 package org.eclipse.digitaltwin.basyx.aasenvironment.http;
 
 import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.eclipse.digitaltwin.aas4j.v3.dataformat.core.DeserializationException;
 import org.eclipse.digitaltwin.aas4j.v3.dataformat.core.SerializationException;
+import org.eclipse.digitaltwin.aas4j.v3.model.impl.DefaultAdministrativeInformation;
 import org.eclipse.digitaltwin.basyx.aasenvironment.AasEnvironment;
 import org.eclipse.digitaltwin.basyx.aasenvironment.environmentloader.CompleteEnvironment;
 import org.eclipse.digitaltwin.basyx.aasenvironment.environmentloader.CompleteEnvironment.EnvironmentType;
@@ -102,18 +105,39 @@ public class AasEnvironmentApiHTTPController implements AASEnvironmentHTTPApi {
 		}
 	}
 
-	@Override
-	public ResponseEntity<Boolean> uploadEnvironment(
-			@RequestParam(value = "file") MultipartFile envFile,
-			@RequestParam(value = "ignore-duplicates", required = false, defaultValue = "false") boolean ignoreDuplicates) throws IOException, InvalidFormatException, DeserializationException, ZipBombException {
-		EnvironmentType envType = EnvironmentType.getFromMimeType(envFile.getContentType());
+    @Override
+    public ResponseEntity<Boolean> uploadEnvironment(
+            @RequestParam(value = "file") MultipartFile envFile,
+            @RequestParam(value = "ignore-duplicates", required = false, defaultValue = "false") boolean ignoreDuplicates) throws IOException, InvalidFormatException, DeserializationException, ZipBombException {
 
-		if (envType == null)
-			envType = EnvironmentType.AASX;
-		aasEnvironment.loadEnvironment(CompleteEnvironment.fromInputStream(envFile.getInputStream(), envType),
-				ignoreDuplicates);
+        EnvironmentType envType = EnvironmentType.getFromMimeType(envFile.getContentType());
+        if (envType == null)
+            envType = EnvironmentType.AASX;
+
+        CompleteEnvironment completeEnv = CompleteEnvironment.fromInputStream(envFile.getInputStream(), envType);
+
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+        OffsetDateTime epoch = OffsetDateTime.parse("1970-01-01T00:00:00Z");
+
+        completeEnv.getEnvironment().getAssetAdministrationShells().forEach(shell -> {
+            if (shell.getAdministration() == null) {
+                shell.setAdministration(new DefaultAdministrativeInformation());
+            }
+
+           if (shell.getCreatedAt() == null) {
+               shell.setCreatedAt(epoch);
+           }
+           if (shell.getUpdatedAt() == null) {
+               shell.setUpdatedAt(now);
+           }
+
+        });
+
+        // 3. Load the modified environment into the repositories
+        aasEnvironment.loadEnvironment(completeEnv, ignoreDuplicates);
+
         return new ResponseEntity<>(true, HttpStatus.OK);
-	}
+    }
 
 	private List<String> getOriginalIds(List<String> ids) {
 		List<String> results = new ArrayList<>();

@@ -15,6 +15,7 @@
 
 package org.eclipse.digitaltwin.aas4j.v3.model;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.model.annotations.IRI;
 import org.eclipse.digitaltwin.aas4j.v3.model.annotations.KnownSubtypes;
@@ -82,4 +83,10 @@ public interface AssetAdministrationShell extends HasDataSpecification, Identifi
    * @param submodels desired value for the property submodels.
    */
   void setSubmodels(List<Reference> submodels);
+
+  OffsetDateTime getCreatedAt();
+  void setCreatedAt(OffsetDateTime createdAt);
+
+  OffsetDateTime getUpdatedAt();
+  void setUpdatedAt(OffsetDateTime updatedAt);
 }
