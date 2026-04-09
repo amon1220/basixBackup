@@ -16,9 +16,16 @@
 package org.eclipse.digitaltwin.aas4j.v3.dataformat.json.internal.mixins;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import java.time.OffsetDateTime;
 import org.eclipse.digitaltwin.aas4j.v3.model.AssetInformation;
 
 public interface AssetAdministrationShellMixin {
   @JsonInclude(JsonInclude.Include.ALWAYS)
   AssetInformation getAssetInformation();
+
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  OffsetDateTime getCreatedAt();
+
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  OffsetDateTime getUpdatedAt();
 }
