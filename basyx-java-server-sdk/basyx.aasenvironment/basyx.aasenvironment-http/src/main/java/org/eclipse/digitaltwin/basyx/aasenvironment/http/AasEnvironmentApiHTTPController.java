@@ -116,7 +116,7 @@ public class AasEnvironmentApiHTTPController implements AASEnvironmentHTTPApi {
 
         CompleteEnvironment completeEnv = CompleteEnvironment.fromInputStream(envFile.getInputStream(), envType);
 
-        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC).truncatedTo(java.time.temporal.ChronoUnit.SECONDS);
         OffsetDateTime epoch = OffsetDateTime.parse("1970-01-01T00:00:00Z");
 
         completeEnv.getEnvironment().getAssetAdministrationShells().forEach(shell -> {
@@ -124,13 +124,12 @@ public class AasEnvironmentApiHTTPController implements AASEnvironmentHTTPApi {
                 shell.setAdministration(new DefaultAdministrativeInformation());
             }
 
-           if (shell.getCreatedAt() == null) {
-               shell.setCreatedAt(epoch);
-           }
-           if (shell.getUpdatedAt() == null) {
-               shell.setUpdatedAt(now);
-           }
-
+            if (shell.getAdministration().getCreatedAt() == null) {
+                shell.getAdministration().setCreatedAt(epoch);
+            }
+            if (shell.getAdministration().getUpdatedAt() == null) {
+                shell.getAdministration().setUpdatedAt(now);
+            }
         });
 
         // 3. Load the modified environment into the repositories
